@@ -24,15 +24,18 @@ function Character() {
 
   }, []);
 
+  // if character index > 56 send it back to the beginning of the array
   if (current >= 57) {
     setCurrent(0)
   }
 
+  // if the index of the previous character will be -1 send it to the end of the array, otherwise go to previous character 
   let negative = () => {
     if (current -1 === -1) {
       setCurrent(56)
     } else {setCurrent(current -1)}
   }
+
 
   if (!characters) return <h2> </h2>;
 
@@ -46,7 +49,7 @@ function Character() {
       </button>
       <button className="btn" onClick={
         () => setCurrent(current + 1)}>
-        New Character
+        Next Character
       </button>
       {characters.length > 0 && (
         <Card
