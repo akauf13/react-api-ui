@@ -1,5 +1,15 @@
+.card {
+  border: 2px solid black;
+  max-height: 800px;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 45px;
+  background-color: white;
+}
+
 img {
   height: 500px;
-  width: 300px;
-  border-radius: 10px;
+  width: 350px;
+  border-radius: 90px;
+  padding-bottom: 25px;
 }

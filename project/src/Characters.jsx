@@ -12,50 +12,53 @@ function Character() {
         headers: { Accept: "application/json" },
       }
     );
-
+    response.data[13].img =
+      "https://static.wikia.nocookie.net/breakingbad/images/7/78/Lydia_S5b.jpg";
+    response.data[16].img =
+      "https://static.wikia.nocookie.net/breakingbad/images/2/2d/Cast_bb_800x600_skinny-pete.jpg";
+    response.data[38].img =
+      "https://static.wikia.nocookie.net/breakingbad/images/3/39/Holly_White_2009.png";
     console.log(response.data);
     await setCharacters(response.data);
   };
 
-  
-
   useEffect(() => {
     getCharacters();
-
   }, []);
 
   // if character index > 56 send it back to the beginning of the array
   if (current >= 57) {
-    setCurrent(0)
+    setCurrent(0);
   }
 
-  // if the index of the previous character will be -1 send it to the end of the array, otherwise go to previous character 
+  // if the index of the previous character will be -1 send it to the end of the array, otherwise go to previous character
   let negative = () => {
-    if (current -1 === -1) {
-      setCurrent(56)
-    } else {setCurrent(current -1)}
-  }
-
+    if (current - 1 === -1) {
+      setCurrent(56);
+    } else {
+      setCurrent(current - 1);
+    }
+  };
 
   if (!characters) return <h2> </h2>;
 
   return (
     <div className="App">
+      <div className="container">
       <h1>Breaking Bad Characters</h1>
+      </div >
       {/* <div className="container">{characters[0].name}</div> */}
-      <button className="btn" onClick={
-        () => negative()}>
+      <button className="btn" onClick={() => negative()}>
         Previous Character
       </button>
-      <button className="btn" onClick={
-        () => setCurrent(current + 1)}>
+      <button className="btn" onClick={() => setCurrent(current + 1)}>
         Next Character
       </button>
       {characters.length > 0 && (
         <Card
           name={characters[current].name}
           nickname={characters[current].nickname}
-          occupation={characters[current].occupation}
+          occupation={characters[current].occupation.join(", ")}
           img={characters[current].img}
           portrayed={characters[current].portrayed}
         />
