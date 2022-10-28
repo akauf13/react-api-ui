@@ -1,12 +1,32 @@
-.App {
+.main {
   text-align: center;
   height: 100vh;
+}
+
+.back {
   background-image: url("https://images6.alphacoders.com/321/thumb-1920-321927.jpg");
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  
+}
+.film{
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(45, 45, 45, .5);
+}
+.wrapper {
+  z-index: 999;
+  /* background-color: red; */
 }
 
 .container {
   height: 60px;
   display: flex;
+  z-index: 2;
 }
 
 h1 {
@@ -15,15 +35,53 @@ h1 {
   margin: auto;
   margin-top: 25px;
   border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
   background-color: white;
+  z-index: 2;
+}
+
+.green {
+  color: #046529;
+  padding-left: 0.3em;
 }
 
 .btn {
-  margin-bottom: 25px;
-  margin-left: 15px;
-  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 3;
+}
+.left {
+margin-right: 10px;
+}
+.right {
+margin-left: 10px;
+}
+.btn:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 
+@media screen and (max-width: 600px) {
+  .container {
+    font-size: 14px;
+  }
+
+  .btn {
+    margin-bottom: 12px;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}

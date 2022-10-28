@@ -12,6 +12,8 @@ function Character() {
         headers: { Accept: "application/json" },
       }
     );
+    response.data[7].img =
+      "https://static.wikia.nocookie.net/breakingbad/images/a/a4/Saul_S5b.jpg";
     response.data[13].img =
       "https://static.wikia.nocookie.net/breakingbad/images/7/78/Lydia_S5b.jpg";
     response.data[16].img =
@@ -43,26 +45,32 @@ function Character() {
   if (!characters) return <h2> </h2>;
 
   return (
-    <div className="App">
-      <div className="container">
-      <h1>Breaking Bad Characters</h1>
-      </div >
-      {/* <div className="container">{characters[0].name}</div> */}
-      <button className="btn" onClick={() => negative()}>
-        Previous Character
-      </button>
-      <button className="btn" onClick={() => setCurrent(current + 1)}>
-        Next Character
-      </button>
-      {characters.length > 0 && (
-        <Card
-          name={characters[current].name}
-          nickname={characters[current].nickname}
-          occupation={characters[current].occupation.join(", ")}
-          img={characters[current].img}
-          portrayed={characters[current].portrayed}
-        />
-      )}
+    <div className="main">
+      <div className="back"></div>
+      <div className="film"></div>
+        <div className="container">
+          <h1>
+            <span className="green">Br</span>eaking
+            <span className="green">Ba</span>d Characters
+          </h1>
+        </div>
+      <div className="wrapper">
+        <button className="btn left" onClick={() => negative()}>
+          Previous Character
+        </button>
+        <button className="btn right" onClick={() => setCurrent(current + 1)}>
+          Next Character
+        </button>
+        {characters.length > 0 && (
+          <Card
+            name={characters[current].name}
+            nickname={characters[current].nickname}
+            occupation={characters[current].occupation.join(", ")}
+            img={characters[current].img}
+            portrayed={characters[current].portrayed}
+          />
+        )}
+      </div>
     </div>
   );
 }
